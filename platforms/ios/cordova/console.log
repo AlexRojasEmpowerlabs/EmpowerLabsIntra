@@ -628,3 +628,17 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-05-02 03:34:45.499 EmpowerLabsIntra[21857:845240] Resetting plugins due to page load.
 2015-05-02 03:34:46.108 EmpowerLabsIntra[21857:845240] Finished load of: file:///Users/alexrojas/Library/Developer/CoreSimulator/Devices/800DD683-83D7-435E-8600-8022C79E62AD/data/Containers/Bundle/Application/D71FC3F9-5DE0-4A9A-9AD6-C8A4B12BF3A4/EmpowerLabsIntra.app/www/index.html
+2015-05-05 14:52:17.128 EmpowerLabsIntra[24216:1134382] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/alexrojas/Library/Developer/CoreSimulator/Devices/800DD683-83D7-435E-8600-8022C79E62AD/data/Containers/Data/Application/602C03C2-83BD-4EF0-8274-469D55A07D2A/Library/Cookies/Cookies.binarycookies
+2015-05-05 14:52:18.451 EmpowerLabsIntra[24216:1134382] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-05 14:52:18.452 EmpowerLabsIntra[24216:1134382] Multi-tasking -> Device: YES, App: YES
+2015-05-05 14:52:18.495 EmpowerLabsIntra[24216:1134382] Unlimited access to network resources
+2015-05-05 14:52:18.517 EmpowerLabsIntra[24216:1134382] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-05 14:52:20.901 EmpowerLabsIntra[24216:1134382] Resetting plugins due to page load.
+2015-05-05 14:52:22.557 EmpowerLabsIntra[24216:1134382] Finished load of: file:///Users/alexrojas/Library/Developer/CoreSimulator/Devices/800DD683-83D7-435E-8600-8022C79E62AD/data/Containers/Bundle/Application/810A38B2-7358-4019-B6EB-B413BFFF7BF2/EmpowerLabsIntra.app/www/index.html
