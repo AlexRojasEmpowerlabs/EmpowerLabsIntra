@@ -78,10 +78,4 @@ module.controller('MensajeController', function($scope) {
 }); 
 
 module.controller('newMessageController', function($scope) {
-	$scope.nuevoMensaje=function(){
-		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
-	};
-	$scope.enviarMensaje=function(){
-		$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
-	};
 }); 
