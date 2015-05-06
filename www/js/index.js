@@ -73,6 +73,7 @@ module.controller('PageController', function($scope) {
 
 module.controller('MensajeController', function($scope) {
 	$scope.nuevoMensaje=function(){
+		ons.notification.alert({message: ''+user, title:"Intellibanks"});
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
 	};
 }); 
