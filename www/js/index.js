@@ -1,4 +1,6 @@
-user="JoseRojas";
+user="nouser";
+
+var myProfile="[]";
 todos={};
 var module = ons.bootstrap('my-app', ['onsen'],function($httpProvider) {
   // Use x-www-form-urlencoded Content-Type
@@ -63,14 +65,19 @@ module.controller('AppController', function($scope,$http) {
 });
 
 module.controller('PageController', function($scope) {
+	
 	ons.ready(function() {
 		// Init code here
+  	
 	});
+	
+	
 	$scope.miPerfil();
 }); 
 
-module.controller('MensajeController', function($scope,$timeout) {
+module.controller('MensajeController', function($scope,$timeout,$http) {
 	$scope.timeInMs = 0;
+	$scope.res='waiting..';
   
     var countUp = function() {
         $scope.timeInMs+= 500;
@@ -79,13 +86,23 @@ module.controller('MensajeController', function($scope,$timeout) {
     
     $timeout(countUp, 500);
     
-    
+     $http.get('http://webestoque.com.br/api/chat.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-05%2000:00:00')
+                       .success(function (data) {
+
+                          $scope.res= unescape(data);
+
+                       });
 	$scope.nuevoMensaje=function(){
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
 	};
 	$scope.enviarMensaje=function(){
 		//$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
-		alert('hi');
+		$http.get('http://webestoque.com.br/api/CHATSEND?roomid=rs9b804f98592a&username=alex&msg=allInOne')
+                       .success(function (data) {
+
+                          //$scope.res= unescape(data);
+
+                       });
 	};
 }); 
 
@@ -114,4 +131,29 @@ module.controller('TicketsController', function($scope,$dataTickets,$http) {
 module.controller('NewTicketController', function($scope) {
 }); 
 
+  
+  module.controller('LoginController',function($scope,$http){
+  	$scope.formLogin={};
+  		$scope.login=function(){
+  			$http.post('http://empowerlabs.com/landing-pages/Martin/Usuarios/ingreso.php',$scope.formLogin).
+  			success(function(data,status,headers,config){
+  				if(data.code=="OK"){
+  					user=data.user;
+  					//ons.notification.alert({message: ''+data.respuesta, title:"Intellibanks"});
+  					$scope.miPerfil();
+  					menu.setMainPage('page1.html');
+  				}
+  				else{
+  					ons.notification.alert({message: ''+data.respuesta, title:"Intellibanks"});
+  				}
+  			});
+  		};
+  		
+  });
+   module.factory('$myDataProfile', function() {
+      var myDataProfile;
+      		myDataProfile=myProfile;
+      
+      return myDataProfile;
+  });
 

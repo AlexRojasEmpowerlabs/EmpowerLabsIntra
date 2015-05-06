@@ -128,6 +128,10 @@
 						</div>
 					</ons-toolbar>
 					<div style="margin-top: 90px">{{timeInMs}}</div>
+					
+									
+					<div style="margin-top: 90px">{{res}}</div>
+					
 					<ons-bottom-toolbar>
 						<input type="text" class="text-input" style="width: 85%; margin-left: 8px; margin-top: 8px" placeholder="text" value="">
       <i class="ion-android-send" style="font-size:18px; float: right; margin-right: 8px; margin-top: 12px" ng-click="enviarMensaje()"></i>
@@ -295,6 +299,37 @@
 				</ons-page>
 			</ons-navigator>
 		</ons-template>
+		
+		<ons-template id="login2.html">
+			<ons-page style="background-image: url('img/splash.png'); no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  background-size: cover;" ng-controller="LoginController">
+				
+
+				<div class="login-form2">
+					<div class="center">
+						<form id="logueo2">
+							<input ng-model="formLogin.nombre" type="text" class="text-input--underbar" placeholder="Usuario" style="background: rgba(255, 255, 255, 0.4); text-align: center; border-radius: 5px;" />
+							<br>
+							<input ng-model="formLogin.pass" type="password" class="text-input--underbar" placeholder="Contraseña" style="background: rgba(255, 255, 255, 0.4);; text-align: center; border-radius: 5px;" />
+							<br>
+							<br>
+							<ons-button modifier="large" class="login-button" ng-click="login()">
+								Log In
+							</ons-button>
+							<br>
+						</form>
+					</div>
+
+				</div>
+
+			</ons-page>
+		</ons-template>
+		<ons-modal var="modal">
+			<ons-icon icon="ion-loading-c" spin="true"></ons-icon>
+			<br>
+			Cargando informacion, por favor espere ...
+		</ons-modal>
 		
 	</body>
 </html>
