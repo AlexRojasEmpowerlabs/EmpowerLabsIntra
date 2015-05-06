@@ -13,6 +13,12 @@
 ons-back-button i, ons-back-button span {
 	color: #FFFFFF;
 }
+i {
+	color: #2371AF;
+}
+i:active{
+	color: #A5C8E4;
+}
 /*------------------------------------Menu-------------------------------------------------------*/
 .page--menu-page__background {
 	/*background-color: #535551;*/

@@ -60,9 +60,28 @@ module.controller('AppController', function($scope,$http) {
   });
     };
 });
+
 module.controller('PageController', function($scope) {
 	ons.ready(function() {
 		// Init code here
 	});
 	$scope.miPerfil();
+}); 
+
+module.controller('MensajeController', function($scope) {
+	$scope.nuevoMensaje=function(){
+		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
+	};
+	$scope.enviarMensaje=function(){
+		$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
+	};
+}); 
+
+module.controller('newMessageController', function($scope) {
+	$scope.nuevoMensaje=function(){
+		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
+	};
+	$scope.enviarMensaje=function(){
+		$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
+	};
 }); 
