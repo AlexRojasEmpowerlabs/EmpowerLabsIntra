@@ -154,14 +154,6 @@ background: -webkit-linear-gradient(-45deg, #b7deed 0%,#71ceef 50%,#21b4e2 51%,#
   
 }
 
-input[type=text], input[type=password] {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  outline: none;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
 
 select {
   width: 30%;

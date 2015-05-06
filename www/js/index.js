@@ -97,9 +97,9 @@ module.controller('MensajeController', function($scope,$timeout,$http) {
 	};
 	$scope.enviarMensaje=function(){
 		//$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
-		$http.get('http://webestoque.com.br/api/CHATSEND?roomid=rs9b804f98592a&username=alex&msg=allInOne')
+		$http.get('http://webestoque.com.br/api/chatsend.asmx/SendChat?roomid=rs9b804f98592a&username=alex&msg=allInOne')
                        .success(function (data) {
-
+						alert(data);
                           //$scope.res= unescape(data);
 
                        });
