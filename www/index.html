@@ -38,8 +38,33 @@
 
 					</ons-list-item>
 					<ons-list-item class="menu-item" ng-click="menu.setMainPage('page1.html', {closeMenu: true})">
-						<ons-icon icon="fa-bookmark"></ons-icon>
-						Todos
+						<ons-icon icon="fa-home"></ons-icon>
+						Home
+					</ons-list-item>
+
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('PAP.html', {closeMenu: true})">
+						<ons-icon icon="fa fa-cubes"></ons-icon>
+						PAP
+					</ons-list-item>
+
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('Workflow.html', {closeMenu: true})">
+						<ons-icon icon="fa-calendar"></ons-icon>
+						Workflow
+					</ons-list-item>
+
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('TicketTracker.html', {closeMenu: true})">
+						<ons-icon icon="ion-clipboard"></ons-icon>
+						Ticket Tracker
+					</ons-list-item>
+
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('eCommunicator.html', {closeMenu: true})">
+						<ons-icon icon="ion-radio-waves"></ons-icon>
+						E - Communicator
+					</ons-list-item>
+
+					<ons-list-item class="menu-item" ng-click="menu.setMainPage('mblocs.html', {closeMenu: true})">
+						<ons-icon icon="ion-film-marker"></ons-icon>
+						mBlocs
 					</ons-list-item>
 
 					<ons-list-item class="menu-item" ng-click="menu.setMainPage('mensajes.html', {closeMenu: true})">
@@ -160,5 +185,116 @@
 				</div>
 			</ons-page>
 		</ons-template>
+		<ons-template id="TicketTracker.html">
+			<ons-page ng-controller="TicketsController">
+				<ons-toolbar class="custom-toolbar">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon custom-icon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="right">
+							<ons-toolbar-button ng-click="newTicket()" ng-controller="NewTicketController">
+								<ons-icon icon="ion-compose custom-icon"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Ticket Tracker
+						</div>
+					</ons-toolbar>
+					<div class="navigation-bar" style="margin-top: 30px">
+						<div class="navigation-bar__center">
+
+							<input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Buscar" ng-model="entradaTicket">
+
+						</div>
+					</div>
+					<ons-list>
+
+						<!--<div id="ticketbox"></div>-->
+						<ons-list-item modifier="chevron" class="item" ng-repeat="item in items | filter : entradaTicket" ng-click="showTicket(item)">
+							<ons-row>
+								<ons-col width="60px">
+									<div class="item-thum"><img style="height: 50px; width: 50px;" src="{{item.thum}}"/></div>
+								</ons-col>
+								<ons-col>
+									<header>
+										<span class="item-title">{{item.tipo}}</span>
+										<span class="item-label">{{item.fecha}}</span>
+									</header>
+									<p class="item-desc">
+										{{item.problema}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
+			</ons-page>
+		</ons-template>
+		<ons-template id="PAP.html">
+			<ons-navigator var="navigator">
+				<ons-page ng-controller="PageController">
+					<ons-toolbar class="custom-toolbar">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							PAP
+						</div>
+					</ons-toolbar>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="Workflow.html">
+			<ons-navigator var="navigator">
+				<ons-page ng-controller="PageController">
+					<ons-toolbar class="custom-toolbar">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							Workflow
+						</div>
+					</ons-toolbar>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="eCommunicator.html">
+			<ons-navigator var="navigator">
+				<ons-page ng-controller="PageController">
+					<ons-toolbar class="custom-toolbar">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							E - Communicator
+						</div>
+					</ons-toolbar>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		<ons-template id="mblocs.html">
+			<ons-navigator var="navigator">
+				<ons-page ng-controller="PageController">
+					<ons-toolbar class="custom-toolbar">
+						<div class="left">
+							<ons-toolbar-button ng-click="menu.toggle()">
+								<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+							</ons-toolbar-button>
+						</div>
+						<div class="center">
+							mBlocs
+						</div>
+					</ons-toolbar>
+				</ons-page>
+			</ons-navigator>
+		</ons-template>
+		
 	</body>
 </html>

@@ -113,3 +113,35 @@ background: -webkit-linear-gradient(-45deg, #b7deed 0%,#71ceef 50%,#21b4e2 51%,#
   font-size: 14px;
   opacity: 0.6;
 }
+/*-------------------------------------------- ELEMENTOS DE LISTA -----------------------------------------------------*/
+
+
+    .item {
+      padding: 10px;
+      line-height: 1;
+    }
+    .item-thum {
+      background-color: #ccc;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      -webkit-border-radius: 100%;
+    }
+    .item-title {
+      font-size: 15px;
+      font-weight: 500;
+      overflow: hidden;
+    }
+    .item-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.3;
+      margin: 4px 0 0 0;
+      padding: 0 30px 0 0;
+      overflow: hidden;
+    }
+    .item-label {
+      font-size: 12px;
+      color: #999;
+      float: right;
+    }

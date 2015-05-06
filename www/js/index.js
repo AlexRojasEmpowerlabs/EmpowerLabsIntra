@@ -1,4 +1,5 @@
 user="JoseRojas";
+todos={};
 var module = ons.bootstrap('my-app', ['onsen'],function($httpProvider) {
   // Use x-www-form-urlencoded Content-Type
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
@@ -89,6 +90,28 @@ module.controller('MensajeController', function($scope,$timeout) {
 }); 
 
 module.controller('newMessageController', function($scope) {
+}); 
+
+module.controller('TicketsController', function($scope,$dataTickets,$http) {
+  	$scope.items=todos;
+	$http.get('http://empowerlabs.com/proyectos/trackersAPI/EmpowerLabsIntra/tickettracker/todos.php').
+	success(function(data, status, headers, config){
+		
+  	data.reverse();
+    $dataTickets.items=data;
+    todos=data;
+    $scope.items = $dataTickets.items; 
+	});
+}); 
+
+  module.factory('$dataTickets', function() {
+      var dataTickets = {};
+      		dataTickets.items=todos;
+      
+      return dataTickets;
+  });
+
+module.controller('NewTicketController', function($scope) {
 }); 
 
 
