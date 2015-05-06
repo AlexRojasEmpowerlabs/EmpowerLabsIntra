@@ -68,7 +68,17 @@ module.controller('PageController', function($scope) {
 	$scope.miPerfil();
 }); 
 
-module.controller('MensajeController', function($scope) {
+module.controller('MensajeController', function($scope,$timeout) {
+	$scope.timeInMs = 0;
+  
+    var countUp = function() {
+        $scope.timeInMs+= 500;
+        $timeout(countUp, 500);
+    };
+    
+    $timeout(countUp, 500);
+    
+    
 	$scope.nuevoMensaje=function(){
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
 	};
@@ -80,3 +90,5 @@ module.controller('MensajeController', function($scope) {
 
 module.controller('newMessageController', function($scope) {
 }); 
+
+
