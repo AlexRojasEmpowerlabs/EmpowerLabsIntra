@@ -59,6 +59,9 @@ module.controller('AppController', function($scope,$http) {
   	
   });
     };
+	$scope.enviarMensaje=function(){
+		$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
+	};
 });
 
 module.controller('PageController', function($scope) {
@@ -71,9 +74,6 @@ module.controller('PageController', function($scope) {
 module.controller('MensajeController', function($scope) {
 	$scope.nuevoMensaje=function(){
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
-	};
-	$scope.enviarMensaje=function(){
-		$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
 	};
 }); 
 
