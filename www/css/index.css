@@ -21,12 +21,15 @@ i:active{
 }
 /*------------------------------------Menu-------------------------------------------------------*/
 .page--menu-page__background {
-	/*background-color: #535551;*/
+	/*background-color: #535551;
 	background: url(../img/fondo-menu.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
 	-webkit-filter: blur(5px);
-	filter: blur(5px);
+	filter: blur(5px);*/
+	
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#b7deed), color-stop(50%,#71ceef), color-stop(51%,#21b4e2), color-stop(100%,#b7deed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, #b7deed 0%,#71ceef 50%,#21b4e2 51%,#b7deed 100%); /* Chrome10+,Safari5.1+ */
 }
 
 .page--menu-page__content {
