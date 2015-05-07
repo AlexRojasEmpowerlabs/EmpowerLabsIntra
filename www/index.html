@@ -122,18 +122,32 @@
 							Mensajes
 						</div>
 						<div class="right">
-							<ons-toolbar-button ng-click="nuevoMensaje()">
+							<ons-toolbar-button>
 								<ons-icon icon="ion-compose" size="28px" fixed-width="false"></ons-icon>
 							</ons-toolbar-button>
 						</div>
 					</ons-toolbar>
-					<div style="margin-top: 90px">{{timeInMs}}</div>
+					<div style="margin-top: 70px">{{timeInMs}}</div>
 					
-									
-					<div style="margin-top: 90px">{{res}}</div>
+					<ons-list>
+
+						<!--<div id="ticketbox"></div>-->
+						<ons-list-item class="item" ng-repeat="r in res">
+							<ons-row>								<ons-col>
+									<header>
+										<span class="item-title"></span>
+										<span class="item-label">{{r.tempo}}</span>
+									</header><br>
+									<p class="item-desc">
+										{{r.texto}}
+									</p>
+								</ons-col>
+							</ons-row>
+						</ons-list-item>
+					</ons-list>
 					
 					<ons-bottom-toolbar>
-						<input type="text" class="text-input" style="width: 85%; margin-left: 8px; margin-top: 8px" placeholder="text" value="">
+						<input type="text" class="text-input" style="width: 85%; margin-left: 8px; margin-top: 8px" placeholder="Message" ng-model="mensajeBox.message">
       <i class="ion-android-send" style="font-size:18px; float: right; margin-right: 8px; margin-top: 12px" ng-click="enviarMensaje()"></i>
 					</ons-bottom-toolbar>
 				</ons-page>

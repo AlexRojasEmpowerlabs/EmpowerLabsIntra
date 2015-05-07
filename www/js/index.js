@@ -77,37 +77,43 @@ module.controller('PageController', function($scope) {
 
 module.controller('MensajeController', function($scope,$timeout,$http) {
 	$scope.timeInMs = 0;
-	$scope.res='waiting..';
+	$scope.res={};
+	$scope.mensajeBox={};
   
-    var countUp = function() {
-        $scope.timeInMs+= 500;
-        $timeout(countUp, 500);
-    };
     
-    $timeout(countUp, 500);
-    
-     $http.get('http://webestoque.com.br/api/chat.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-05%2000:00:00')
+    $scope.getMensajes=function(){
+     $http.get('http://webestoque.com.br/api/chatsend.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-05%2000:00:00')
                        .success(function (data) {
                        	cad=data.split('<string xmlns="http://174.122.236.154/">');
                        	cad2=cad[1].split('</string>');
                        	s=cad2[0];
-                       	text=s.replace("\u0003c/", "");
-                          $scope.res= text;
+						var obj = JSON.parse(s);
+                          $scope.res= obj.WEBCHATTEXT.reverse();
                           
                        });
+    };
+    $scope.getMensajes();
+    var countUp = function() {
+        $scope.timeInMs+= 500;
+        $scope.getMensajes();
+        $timeout(countUp, 500);
+    };
+    $timeout(countUp, 500);
 	$scope.nuevoMensaje=function(){
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
 	};
 	$scope.enviarMensaje=function(){
 		//$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
-		$http.get('http://webestoque.com.br/api/chatsend.asmx/SendChat?roomid=rs9b804f98592a&username=alex&msg=allInOne')
+		$http.get('http://webestoque.com.br/api/chatsend.asmx/SendChat?roomid=rs9b804f98592a&username=alexPhonegap&msg='+$scope.mensajeBox.message)
                        .success(function (data) {
-						alert(data);
-                          //$scope.res= unescape(data);
+						
+    $scope.getMensajes();
 
                        });
 	};
-}); 
+}).config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.timeout = 5000;
+}]); 
 
 module.controller('newMessageController', function($scope) {
 }); 
