@@ -88,9 +88,12 @@ module.controller('MensajeController', function($scope,$timeout,$http) {
     
      $http.get('http://webestoque.com.br/api/chat.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-05%2000:00:00')
                        .success(function (data) {
-
-                          $scope.res= unescape(data);
-
+                       	cad=data.split('<string xmlns="http://174.122.236.154/">');
+                       	cad2=cad[1].split('</string>');
+                       	s=cad2[0];
+                       	text=s.replace("\u0003c/", "");
+                          $scope.res= text;
+                          
                        });
 	$scope.nuevoMensaje=function(){
 		$scope.ons.navigator.pushPage('nuevoMensaje.html',{animation:'lift'});
