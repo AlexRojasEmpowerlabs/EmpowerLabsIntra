@@ -76,13 +76,17 @@ module.controller('PageController', function($scope) {
 }); 
 
 module.controller('MensajeController', function($scope,$timeout,$http) {
+	  
+  	if(user=="nouser"){
+  		 menu.setMainPage('login2.html');
+  	}
 	$scope.timeInMs = 0;
 	$scope.res={};
 	$scope.mensajeBox={};
   
     
     $scope.getMensajes=function(){
-     $http.get('http://webestoque.com.br/api/chatsend.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-05%2000:00:00')
+     $http.get('http://webestoque.com.br/api/chatsend.asmx/GETCHAT?ROOMID=rs9b804f98592a&LAST=2015-05-07%2016:26:00')
                        .success(function (data) {
                        	cad=data.split('<string xmlns="http://174.122.236.154/">');
                        	cad2=cad[1].split('</string>');
@@ -104,10 +108,11 @@ module.controller('MensajeController', function($scope,$timeout,$http) {
 	};
 	$scope.enviarMensaje=function(){
 		//$scope.ons.notification.alert({title:'EmpowerLabsIntra', message:'Enviando ...'});
-		$http.get('http://webestoque.com.br/api/chatsend.asmx/SendChat?roomid=rs9b804f98592a&username=alexPhonegap&msg='+$scope.mensajeBox.message)
+		$http.get('http://webestoque.com.br/api/chatsend.asmx/SendChat?roomid=rs9b804f98592a&username='+user+'&msg='+$scope.mensajeBox.message)
                        .success(function (data) {
 						
     $scope.getMensajes();
+	$scope.mensajeBox={};
 
                        });
 	};
@@ -144,13 +149,13 @@ module.controller('NewTicketController', function($scope) {
   module.controller('LoginController',function($scope,$http){
   	$scope.formLogin={};
   		$scope.login=function(){
-  			$http.post('http://empowerlabs.com/landing-pages/Martin/Usuarios/ingreso.php',$scope.formLogin).
+  			$http.get('http://empowerlabs.com/landing-pages/Martin/Usuarios/ingreso.php?nombre='+$scope.formLogin.nombre+'&pass='+$scope.formLogin.pass).
   			success(function(data,status,headers,config){
   				if(data.code=="OK"){
   					user=data.user;
   					//ons.notification.alert({message: ''+data.respuesta, title:"Intellibanks"});
   					$scope.miPerfil();
-  					menu.setMainPage('page1.html');
+  					menu.setMainPage('mensajes.html');
   				}
   				else{
   					ons.notification.alert({message: ''+data.respuesta, title:"Intellibanks"});
