@@ -129,22 +129,10 @@
 					</ons-toolbar>
 					<div style="margin-top: 70px">{{timeInMs}}</div>
 					
-					<ons-list>
-
+					<ons-list  ng-repeat="r in res">
+						<p class="triangle-right">{{r.texto}}</p>
 						<!--<div id="ticketbox"></div>-->
-						<ons-list-item class="item" ng-repeat="r in res">
-							<ons-row>								
-							<ons-col>
-									<header>
-										<span class="item-title"></span>
-										<span class="item-label">{{r.tempo}}</span>
-									</header><br>
-									<p class="item-desc">
-										{{r.texto}}
-									</p>
-								</ons-col>
-							</ons-row>
-						</ons-list-item>
+						
 					</ons-list>
 					
 					<ons-bottom-toolbar>
