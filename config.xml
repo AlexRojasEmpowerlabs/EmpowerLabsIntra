@@ -13,7 +13,7 @@
     <plugin name="cordova-plugin-whitelist" version="1" />
     
     <plugin name="cordova-plugin-splashscreen" />
-    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreen" value="splash.png" />
 	<preference name="SplashScreenDelay" value="10000" />
 	<preference name="SplashMaintainAspectRatio" value="true|false" />
     <access origin="*" />
